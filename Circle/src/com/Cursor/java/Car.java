@@ -6,33 +6,30 @@ public class Car {
         Machine car = new Machine();
         car.setName();
         car.startUp();
-        car.setSpeed(50);
-        car.setGO(90);
+        car.setGear(4);
+        car.setSpeed(90);
+        car.setSpeed(-42);
         car.stopped();
     }
 }
 
 
 class Machine {
-    private static String name;
-    private static boolean startUp;
-    private static boolean stopped;
-    private static int ride;
-    private static int speed;
+    private String name;
+    private boolean startUp;
+    private int gear;
+    private int speed;
 
 
     public Machine() {
-        this.ride = ride;
-        this.speed = speed;
 
+        this.name = "Porsche";
 
     }
 
 
     public void setName() {
-        this.name = name;
-
-        System.out.println("Trademark of car is - Porsche ");
+        System.out.println("Trademark of car is - " + getName());
     }
 
     public String getName() {
@@ -46,27 +43,31 @@ class Machine {
     }
 
     public void stopped() {
-        stopped = false;
+        startUp = false;
         System.out.println("The car is stopped, because engine is off.");
     }
 
 
-    public void setGO(int go) {
-        this.ride = ride;
-        System.out.println("The car is keeping the speed: " + go + " km per hour");
+    public void setGear(int ride) {
+        this.gear = ride;
+        System.out.println("The car is riding on gear: " + getGear() );
 
     }
 
-    public int getGo() {
-        return ride;
+    public int getGear() {
+        return gear;
     }
 
     public void setSpeed(int speed) {
-        if (speed <= 0) {
+        if (speed == 0) {
             this.speed = speed;
-            System.out.println("The car is staying, because speed is " + speed);
-        } else {
+            System.out.println("The car is staying, because speed is " + speed + " km per hour");
+
+        } else if (speed > 0) {
             System.out.println("The car is riding, because it has speed  " + speed + " km per hour");
+
+        } else {
+            System.out.println("Car cannot has the speed low than 0 ;)");
         }
     }
 
@@ -76,6 +77,7 @@ class Machine {
 
 
 }
+
 
 
 
