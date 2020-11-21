@@ -2,18 +2,17 @@ package com.Cursor.java;
 
 public class Main {
     public static void main(String[] args) {
-        Circle circle = new Circle();
-        System.out.println("The square of circle = ");
-        circle.Circle(3);
+        Circle circle = new Circle(3);
+        System.out.println("The square of circle = " + circle.squareOfCircle()  );
+
     }
 
 
      static class Circle {
         private double radius;
 
-        public void Circle(double radius) {
+         Circle(double radius) {
             this.radius = radius;
-            System.out.println(squareOfCircle());
         }
 
         public double squareOfCircle() {
