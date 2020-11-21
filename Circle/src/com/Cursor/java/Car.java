@@ -6,7 +6,7 @@ public class Car {
         Machine car = new Machine();
         car.setName();
         car.startUp();
-        car.setGear(4);
+        car.setGear(5);
         car.setSpeed(90);
         car.setSpeed(-42);
         car.stopped();
@@ -48,10 +48,13 @@ class Machine {
     }
 
 
-    public void setGear(int ride) {
-        this.gear = ride;
-        System.out.println("The car is riding on gear: " + getGear() );
-
+    public void setGear(int gear) {
+        if (gear == 0 || gear > 6) {
+            System.out.println(" Car cannot has this gear -  " + gear );
+            return;
+        }
+        this.gear = gear;
+        System.out.println("Car rides on gear " + gear);
     }
 
     public int getGear() {
@@ -64,6 +67,7 @@ class Machine {
             System.out.println("The car is staying, because speed is " + speed + " km per hour");
 
         } else if (speed > 0) {
+            this.speed = speed;
             System.out.println("The car is riding, because it has speed  " + speed + " km per hour");
 
         } else {
@@ -77,6 +81,7 @@ class Machine {
 
 
 }
+
 
 
 
