@@ -1,0 +1,46 @@
+package com.user.java;
+
+public class User {
+    private int id;
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String email;
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id;}
+
+    public String getFirstName() { return firstName; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+    public int getAge() {return age;}
+    public void setAge(int age) {this.age = age;}
+    public String getEmail() {return email;}
+    public void setEmail(String email) {this.email = email;}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+       User guest = (User) obj;
+        return id == guest.id
+                && (firstName == guest.firstName
+                || (firstName != null &&firstName.equals(guest.getFirstName())))
+                && (lastName == guest.lastName
+                || (lastName != null && lastName .equals(guest.getLastName())
+        ));
+    }
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+        result = prime * result + id; result = prime * result +
+                ((lastName == null) ? 0 : lastName.hashCode()); return result;
+    }
+}
